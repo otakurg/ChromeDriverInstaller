@@ -1,11 +1,3 @@
-"""
-Date of Creation: 2023-10-05
-Author: Rahul Ghosh
-Description: This script installs ChromeDriver, manages its version, and provides options to add it to the Start Menu and Desktop.
-Version: 1.0.0
-License: MIT License
-"""
-
 import requests
 import os
 import shutil
@@ -16,6 +8,7 @@ import tkinter as tk
 from tkinter import filedialog
 import win32com
 from win32com.client import Dispatch
+
 
 # Define constants
 CHROME_DRIVER_DIR = "C:\\Program Files\\ChromeDriver"
@@ -86,15 +79,7 @@ create_backup_checkbox.set(True)
 add_to_desktop_checkbox = tk.BooleanVar()
 add_to_desktop_checkbox.set(False)
 
-# Create a backup if requested
-if create_backup_checkbox.get():
-    if os.path.exists(os.path.join(CHROME_DRIVER_DIR, "chromedriver-win64")):
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        backup_dir = os.path.join(CHROME_DRIVER_DIR, f"chromedriver-win64_{timestamp}")
-        os.makedirs(backup_dir, exist_ok=True)
-        shutil.copytree(os.path.join(CHROME_DRIVER_DIR, "chromedriver-win64"), os.path.join(backup_dir, "chromedriver-win64"))
-
-
+# Function to download the ChromeDriver binary
 def download_chromedriver():
 
     # Create a backup if requested
