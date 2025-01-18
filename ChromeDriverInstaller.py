@@ -1,14 +1,21 @@
-import requests
-import os
-import shutil
-import subprocess
-from datetime import datetime
-import zipfile
-import tkinter as tk
-from tkinter import filedialog
-import win32com
-from win32com.client import Dispatch
+""" 
+Date of Creation: 2023-10-05 
+Author: Rahul Ghosh 
+Description: This script installs ChromeDriver, manages its version, and provides options to add it to the Start Menu and Desktop. 
+Version: 1.0.0 
+License: MIT License 
+"""
 
+import requests  # For making HTTP requests to download ChromeDriver
+import os  # For interacting with the operating system
+import shutil  # For file operations like copying and removing files
+import subprocess  # For executing system commands
+from datetime import datetime  # For timestamping backups
+import zipfile  # For handling zip files
+import tkinter as tk  # For creating the GUI
+from tkinter import filedialog  # For file dialog operations
+import win32com  # For Windows COM support
+from win32com.client import Dispatch  # For creating Windows shortcuts
 
 # Define constants
 CHROME_DRIVER_DIR = "C:\\Program Files\\ChromeDriver"
@@ -21,6 +28,7 @@ if not os.path.exists(CHROME_DRIVER_DIR):
 
 # Function to stop any running ChromeDriver processes
 def stop_chromedriver():
+    """Stops any running ChromeDriver processes."""
     try:
         subprocess.call(["taskkill", "/F", "/IM", CHROME_DRIVER_EXE])
     except Exception as e:
@@ -45,6 +53,7 @@ root.title("ChromeDriver Installer")
 
 # Add the ChromeDriver executable to the start menu (optional)
 def add_to_start_menu():
+    """Adds the ChromeDriver executable to the Windows Start Menu."""
     start_menu_dir = os.path.join(os.environ["USERPROFILE"], "AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs")
     if not os.path.exists(start_menu_dir):
         os.makedirs(start_menu_dir)
@@ -52,6 +61,7 @@ def add_to_start_menu():
 
 # Add the ChromeDriver executable to the desktop (optional)
 def add_to_desktop():
+    """Creates a shortcut for the ChromeDriver executable on the Desktop."""
     desktop_dir = os.path.join(os.environ["USERPROFILE"], "OneDrive", "Desktop")
     if not os.path.exists(desktop_dir):
         desktop_dir = os.path.join(os.environ["USERPROFILE"], "Desktop")
@@ -81,7 +91,8 @@ add_to_desktop_checkbox.set(False)
 
 # Function to download the ChromeDriver binary
 def download_chromedriver():
-
+    """Downloads the ChromeDriver binary and manages backups."""
+    
     # Create a backup if requested
     if create_backup_checkbox.get():
         if os.path.exists(os.path.join(CHROME_DRIVER_DIR, "chromedriver-win64")):
@@ -108,6 +119,7 @@ def download_chromedriver():
 
 
 def ask_user():
+    """Prompts the user with options for installation preferences."""
     global add_to_start_menu_checkbox, create_backup_checkbox, add_to_desktop_checkbox
     label = tk.Label(root, text="Do you want to add the ChromeDriver executable to the start menu?")
     label.pack()
