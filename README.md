@@ -27,6 +27,9 @@ ChromeDriver is a standalone server that implements WebDriver's wire protocol fo
 ## Conclusion
 Once the installation is complete, you can start using ChromeDriver for your automated testing needs. For more information, refer to the [ChromeDriver documentation](https://chromedriver.chromium.org/).
 
+## Additional Resources
+- You can directly download ChromeDriver from this URL: [ChromeDriver Download](https://googlechromelabs.github.io/chrome-for-testing/)
+
 ## Author
 - Rahul Ghosh
 
