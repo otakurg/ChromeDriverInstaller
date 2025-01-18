@@ -45,5 +45,16 @@ The `ChromeDriverInstaller.py` script performs the following functions:
   - **User Interface**: Uses a simple Tkinter GUI to ask the user if they want to add shortcuts to the Start Menu and Desktop.
   - **Shortcut Creation**: Creates shortcuts for ChromeDriver on the Desktop and in the Start Menu if the user opts for it.
 
+## ChromeDriver JSON Endpoints Utilization
+The script utilizes the following JSON endpoint to fetch the latest stable version of ChromeDriver:
+
+- **Endpoint**: `https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE`
+
+### How It Works
+1. **Fetch Latest Version**: The script sends a GET request to the JSON endpoint to retrieve the latest stable version of ChromeDriver.
+2. **Construct Download URL**: It constructs the download URL for the ChromeDriver binary based on the fetched version.
+3. **Download ChromeDriver**: The script downloads the ChromeDriver binary from the constructed URL and saves it to the specified directory.
+4. **Unzip and Cleanup**: After downloading, the script unzips the downloaded file and removes the zip file.
+
 ## Git Repository
 - [ChromeDriverInstaller Repository](https://github.com/otakurg/ChromeDriverInstaller.git)
