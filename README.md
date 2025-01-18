@@ -33,5 +33,17 @@ Once the installation is complete, you can start using ChromeDriver for your aut
 ## Author
 - Rahul Ghosh
 
+## ChromeDriverInstaller.py Functionality
+The `ChromeDriverInstaller.py` script performs the following functions:
+- **Purpose**: Installs ChromeDriver, manages its version, and provides options to add it to the Start Menu and Desktop.
+- **Key Features**:
+  - **Directory Setup**: Creates a directory for ChromeDriver if it doesn't exist.
+  - **Process Management**: Stops any running ChromeDriver processes before installation.
+  - **Version Management**: Fetches the latest version of ChromeDriver from a JSON endpoint.
+  - **Download**: Downloads the ChromeDriver binary from a constructed URL based on the latest version.
+  - **Backup**: Offers an option to create a backup of the existing ChromeDriver installation.
+  - **User Interface**: Uses a simple Tkinter GUI to ask the user if they want to add shortcuts to the Start Menu and Desktop.
+  - **Shortcut Creation**: Creates shortcuts for ChromeDriver on the Desktop and in the Start Menu if the user opts for it.
+
 ## Git Repository
 - [ChromeDriverInstaller Repository](https://github.com/otakurg/ChromeDriverInstaller.git)
